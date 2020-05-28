@@ -20,6 +20,7 @@ public class OrderTest {
         int value = 123456789;
         ByteBuffer bytebuffer1 = ByteBuffer.allocate(4);
         System.out.print(bytebuffer1.order());
+        System.out.println("===");
         bytebuffer1.putInt(value);
 
         byte[] byteArray = bytebuffer1.array();
@@ -32,6 +33,7 @@ public class OrderTest {
         System.out.print(bytebuffer1.order());
         bytebuffer1.order(ByteOrder.BIG_ENDIAN);
         System.out.print(bytebuffer1.order());
+        System.out.println("===");
         bytebuffer1.putInt(value);
         byteArray = bytebuffer1.array();
         for (int i = 0; i < byteArray.length; i++) {
@@ -42,6 +44,7 @@ public class OrderTest {
         bytebuffer1 = ByteBuffer.allocate(4);
         bytebuffer1.order(ByteOrder.LITTLE_ENDIAN);
         System.out.print(bytebuffer1.order());
+        System.out.println("===");
         bytebuffer1.putInt(value);
         byteArray = bytebuffer1.array();
         for (int i = 0; i < byteArray.length; i++) {

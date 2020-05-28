@@ -18,8 +18,10 @@ public class SliceTest {
         byte[] bytes = new byte[]{1,2,3,4,5};
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
         byteBuffer.position(2);
+        // 2 5 5
         log.info("position:{},limit:{},capacity:{}", byteBuffer.position(), byteBuffer.limit(), byteBuffer.capacity());
         ByteBuffer byteBuffer1 = byteBuffer.slice();
+        // 12345->345
         log.info("position:{},limit:{},capacity:{}", byteBuffer.position(), byteBuffer.limit(), byteBuffer.capacity());
         log.info("position:{},limit:{},capacity:{}", byteBuffer1.position(), byteBuffer1.limit(), byteBuffer1.capacity());
         byteBuffer1.put((byte)6);

@@ -25,7 +25,7 @@ public class PutGetFirstTest {
         bytebuffer.put(byteArrayIn1);
         // 执行put()方法后位置发生改变，将位置设置成2
         bytebuffer.position(2);
-        // 1,2,66,77,88,6,7,8,0,0,0
+        // 1,2,66,77,88,6,7,8,0,0
         bytebuffer.put(byteArrayIn2, 1, 3);
         System.out.print("A=");
         byte[] getByte = bytebuffer.array();

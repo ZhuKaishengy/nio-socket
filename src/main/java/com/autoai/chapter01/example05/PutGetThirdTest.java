@@ -18,8 +18,10 @@ public class PutGetThirdTest {
         ByteBuffer byteBuffer = ByteBuffer.allocate(10);
         byte[] bytes = new byte[]{1,2,3,4};
         byteBuffer.put(bytes);
+        // 1，2，3，4，0，0，0，0，0，0
         log.info("position:{}", byteBuffer.position());
         byteBuffer.put(1, (byte) 5);
+        // 1，5，3，4，0，0，0，0，0，0
         log.info("position:{}", byteBuffer.position());
         byte b = byteBuffer.get(1);
         log.info("position:{}", byteBuffer.position());

@@ -69,10 +69,7 @@ public class BufferTest {
         CharBuffer charBuffer = CharBuffer.wrap(chars);
         log.info("capacity:{}, limit:{}, position:{}", charBuffer.capacity(), charBuffer.limit(), charBuffer.position());
         charBuffer.position(1);
-        charBuffer.put('d');
-        for (int i = 0; i < chars.length; i++) {
-            log.info("item{}:{}", i, chars[i]);
-        }
+        System.out.println(chars);
     }
 
     @Test
@@ -90,9 +87,10 @@ public class BufferTest {
     public void testMark() {
         byte[] bytes = new byte[]{1, 2, 3, 4, 5, 6, 7, 8};
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
+        byteBuffer.position(4);
         log.info("position:{}", byteBuffer.position());
         byteBuffer.mark();
-        byteBuffer.position(4);
+        byteBuffer.position(7);
         log.info("position:{}", byteBuffer.position());
         byteBuffer.reset();
         log.info("position:{}", byteBuffer.position());

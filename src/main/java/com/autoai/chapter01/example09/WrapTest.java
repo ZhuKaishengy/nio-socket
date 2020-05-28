@@ -14,7 +14,9 @@ public class WrapTest {
 
     public static void main(String[] args) {
 
+        // a b c d e
         CharBuffer charBuffer = CharBuffer.wrap("abcde", 1, 3);
+
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         while (charBuffer.hasRemaining()) {
             System.out.print(charBuffer.get());

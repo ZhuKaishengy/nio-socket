@@ -22,7 +22,6 @@ public class AsReadOnlyBufferTest {
         log.info("readonly:{}", readOnlyBuffer.isReadOnly());
         log.info("position:{}", readOnlyBuffer.position());
 
-        readOnlyBuffer.rewind();
         try {
             readOnlyBuffer.put((byte)6);
         } catch (ReadOnlyBufferException e) {

@@ -19,6 +19,7 @@ public class WrapTest {
         ByteBuffer byteBuffer1 = ByteBuffer.wrap(bytes);
         ByteBuffer byteBuffer2 = ByteBuffer.wrap(bytes, 1, 5);
         log.info("byteBuffer1: position:{},limit:{},capacity:{}", byteBuffer1.position(), byteBuffer1.limit(), byteBuffer1.capacity());
+        // 1 6 8
         log.info("byteBuffer2: position:{},limit:{},capacity:{}", byteBuffer2.position(), byteBuffer2.limit(), byteBuffer2.capacity());
     }
 

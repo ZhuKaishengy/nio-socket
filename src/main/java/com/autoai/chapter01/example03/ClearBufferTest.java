@@ -16,15 +16,16 @@ public class ClearBufferTest {
     public static void main(String[] args) {
         char[] chars = new char[]{'a','b','c','d'};
         CharBuffer charBuffer = CharBuffer.wrap(chars);
+        // 0 4 4
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         charBuffer.limit(3);
         charBuffer.position(2);
         charBuffer.mark();
+        // 2 3 4
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         charBuffer.clear();
+        // 0 4 4
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
-        for (int i = 0; i < chars.length; i++) {
-            log.info("item:{}", chars[i]);
-        }
+        System.out.println(chars);
     }
 }

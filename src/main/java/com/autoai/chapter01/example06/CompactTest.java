@@ -21,8 +21,9 @@ public class CompactTest {
         byteBuffer.put((byte)5);
         byteBuffer.put((byte)6);
         byteBuffer.put((byte)7);
+        // 1 2 3 4 5 6 7 0 0 0
         byteBuffer.position(2);
-
+        // 3 4 5 6 7 0 0 0 0 0
         byteBuffer.compact();
         byteBuffer.clear();
 

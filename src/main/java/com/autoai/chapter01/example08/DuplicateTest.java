@@ -23,8 +23,13 @@ public class DuplicateTest {
         ByteBuffer byteBuffer1 = byteBuffer.slice();
         ByteBuffer byteBuffer2 = byteBuffer.duplicate();
 
+        // 2 6 6
         log.info("byteBuffer position:{},limit:{},capacity:{}", byteBuffer.position(), byteBuffer.limit(), byteBuffer.capacity());
+        // 1 2 3 4 5 6 -> 3 4 5 6
+        // 0 4 4
         log.info("byteBuffer1 position:{},limit:{},capacity:{}", byteBuffer1.position(), byteBuffer1.limit(), byteBuffer1.capacity());
+        // 1 2 3 4 5 6
+        // 2 6 6
         log.info("byteBuffer2 position:{},limit:{},capacity:{}", byteBuffer2.position(), byteBuffer2.limit(), byteBuffer2.capacity());
 
         byteBuffer.put((byte)9);

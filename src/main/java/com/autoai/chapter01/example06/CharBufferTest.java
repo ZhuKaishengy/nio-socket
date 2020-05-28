@@ -5,7 +5,9 @@ import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @Author: zhukaishengy
@@ -15,11 +17,15 @@ import java.nio.charset.Charset;
 @Slf4j
 public class CharBufferTest {
 
+    /**
+     * recommand usage
+     * @throws UnsupportedEncodingException
+     */
     @Test
     public void test1() throws UnsupportedEncodingException {
 
         String str = "朱开生";
-        byte[] bytes = str.getBytes("Utf-16BE");
+        byte[] bytes = str.getBytes(StandardCharsets.UTF_16BE);
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
         log.info("class1:{}", byteBuffer.getClass());
         java.nio.CharBuffer charBuffer = byteBuffer.asCharBuffer();
@@ -38,7 +44,7 @@ public class CharBufferTest {
         byte[] bytes = str.getBytes();
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
         log.info("class1:{}", byteBuffer.getClass());
-        java.nio.CharBuffer charBuffer = Charset.forName("utf-8").decode(byteBuffer);
+        CharBuffer charBuffer = Charset.forName("utf-8").decode(byteBuffer);
         log.info("class2:{}", charBuffer.getClass());
         log.info("position:{},limit:{},capacity:{}", byteBuffer.position(), byteBuffer.limit(), byteBuffer.capacity());
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());

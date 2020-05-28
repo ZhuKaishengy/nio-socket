@@ -93,6 +93,7 @@ public class BufferOtherTest {
     public void test6() {
         byte[] bytes = new byte[]{1,2,3,4};
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
+        byteBuffer.position(1);
         byteBuffer.mark();
         log.info("position:{}", byteBuffer.position());
         byteBuffer.position(3);

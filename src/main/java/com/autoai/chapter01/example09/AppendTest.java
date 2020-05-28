@@ -16,12 +16,18 @@ public class AppendTest {
     @Test
     public void test1() {
         CharBuffer charBuffer = CharBuffer.allocate(10);
+        // 0 10 10
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         charBuffer.append('a');
+        // 1 10 10
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         charBuffer.append("bcd");
+        // 4 10 10
+        // a b c d _ _ _ _ _ _
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
         charBuffer.append("abcdef", 4, 6);
+        // 6 10 10
+        // a b c d e f _ _ _ _
         log.info("position:{},limit:{},capacity:{}", charBuffer.position(), charBuffer.limit(), charBuffer.capacity());
 
         charBuffer.flip();
