@@ -82,7 +82,7 @@ public class SocketTest {
             ServerSocket serverSocket = new ServerSocket(9000);
             Socket socket = serverSocket.accept();
             InputStream inputStream = socket.getInputStream();
-            byte[] bytes = new byte[3];
+            byte[] bytes = new byte[9];
             while (inputStream.read(bytes) != -1) {
                 String result = new String(bytes, Charset.forName("utf-8"));
                 log.info(result);
@@ -100,7 +100,9 @@ public class SocketTest {
             OutputStream outputStream = socket.getOutputStream();
             String line = "朱开生";
             outputStream.write(line.getBytes(StandardCharsets.UTF_8));
-        } catch (IOException e) {
+            Thread.sleep(5000);
+            outputStream.write(line.getBytes(StandardCharsets.UTF_8));
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

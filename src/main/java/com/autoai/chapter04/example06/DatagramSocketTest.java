@@ -10,7 +10,7 @@ import java.net.InetSocketAddress;
 /**
  * @Author: zhukaishengy
  * @Date: 2020/6/23 19:09
- * @Description:
+ * @Description: 单播
  */
 @Slf4j
 public class DatagramSocketTest {
@@ -41,9 +41,9 @@ public class DatagramSocketTest {
             /// 正常发送
             String message = "1234567890";
             // 测试发送超大数据量的包导致数据截断的情况
-            for (int i = 0; i < 65508; i++) {
-                message = message + 1;
-            }
+//            for (int i = 0; i < 65508; i++) {
+//                message = message + 1;
+//            }
             DatagramPacket datagramPacket = new DatagramPacket(message.getBytes(), 0, message.length());
             datagramSocket.send(datagramPacket);
 
