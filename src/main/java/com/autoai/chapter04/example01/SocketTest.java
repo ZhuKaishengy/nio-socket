@@ -77,11 +77,12 @@ public class SocketTest {
     }
 
     @Test
-    public void test4() {
-        try {
+    public void server() {
+        try (
             ServerSocket serverSocket = new ServerSocket(9000);
             Socket socket = serverSocket.accept();
-            InputStream inputStream = socket.getInputStream();
+            InputStream inputStream = socket.getInputStream()
+        ){
             byte[] bytes = new byte[9];
             while (inputStream.read(bytes) != -1) {
                 String result = new String(bytes, Charset.forName("utf-8"));
@@ -93,15 +94,15 @@ public class SocketTest {
     }
 
     @Test
-    public void test5() {
-
-        try {
+    public void client() {
+        try (
             Socket socket = new Socket("localhost", 9000);
-            OutputStream outputStream = socket.getOutputStream();
-            String line = "朱开生";
-            outputStream.write(line.getBytes(StandardCharsets.UTF_8));
+            OutputStream outputStream = socket.getOutputStream()
+        ){
+            String message = "朱开生";
+            outputStream.write(message.getBytes(StandardCharsets.UTF_8));
             Thread.sleep(5000);
-            outputStream.write(line.getBytes(StandardCharsets.UTF_8));
+            outputStream.write(message.getBytes(StandardCharsets.UTF_8));
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

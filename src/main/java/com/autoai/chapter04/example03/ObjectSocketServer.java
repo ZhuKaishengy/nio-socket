@@ -32,13 +32,13 @@ public class ObjectSocketServer {
         executorService = new ThreadPoolExecutor(corePoolSize, corePoolSize + 5, 5, TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(Integer.MAX_VALUE), new ThreadFactory() {
 
-            private static final String NAMEPREFIX = "worker-";
+            private static final String NAME_PREFIX = "worker-";
             AtomicInteger count = new AtomicInteger(0);
 
             @Override
             public Thread newThread(Runnable r) {
                 Thread thread = new Thread(r);
-                thread.setName(NAMEPREFIX + count.getAndIncrement());
+                thread.setName(NAME_PREFIX + count.getAndIncrement());
                 return thread;
             }
         }, new ThreadPoolExecutor.DiscardPolicy());
